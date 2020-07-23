@@ -4,6 +4,7 @@ import 'package:bazaar/viewproduct_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'addproduct.dart';
 import 'login_screen.dart';
 
 
@@ -41,6 +42,40 @@ Card buildCard({IconData icon,TextInputType titype,String htext,MediaQueryData m
 
 }
 
+Card buildButton(BuildContext context,IconData iconData,String text){
+  return Card(
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(32.0)
+    ),
+    child: Container(
+      height: 55,
+      width: 150,
+      child: FlatButton.icon(
+        icon: Icon(
+            iconData
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(32.0),
+        ),
+
+        color: Colors.white,
+        textColor: primarycolor,
+        padding: EdgeInsets.all(8.0),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>AddProduct()));
+        },
+        label: Text(
+          text,
+          overflow: TextOverflow.fade,
+          style: TextStyle(
+            fontSize: 16.0,
+          ),
+        ),
+      ),
+
+    ),
+  );
+}
 class signup extends StatefulWidget {
   @override
   _signupState createState() => _signupState();
@@ -88,36 +123,7 @@ class _signupState extends State<signup> {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32.0)
-                            ),
-                            child: Container(
-                              height: 55,
-                              width: 150,
-                              child: FlatButton.icon(
-                                icon: Icon(Icons.insert_drive_file
-                                ),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(32.0),
-                                ),
-
-                                color: Colors.white,
-                                textColor: primarycolor,
-                                padding: EdgeInsets.all(8.0),
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductView()));
-                                },
-                                label: Text(
-                                  "Add Pan Card",
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                              ),
-
-                            ),
-                          ),
+                          child: buildButton(context,Icons.insert_drive_file,'Add Pan Card'),
                         ),
                         SizedBox(
                           width: 12.0,
@@ -144,7 +150,7 @@ class _signupState extends State<signup> {
                         textColor: Colors.white,
                         padding: EdgeInsets.all(8.0),
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductView()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>AddProduct()));
                         },
                         child: Text(
                           "SignUp",
