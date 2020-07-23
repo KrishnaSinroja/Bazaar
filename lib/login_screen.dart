@@ -65,7 +65,7 @@ class _loginState extends State<login> {
                     height: 10.0,
                   ),
 
-                  buildCard(icon:Icons.person_pin,titype: TextInputType.text,htext: 'Username',mdata: data),
+                  buildCard(icon:Icons.person,titype: TextInputType.text,htext: 'Full Name',mdata: data),
                   buildCard(icon:Icons.lock,titype: TextInputType.visiblePassword,htext: 'Password',mdata: data),
 
                   SizedBox(

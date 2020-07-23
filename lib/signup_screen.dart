@@ -1,8 +1,9 @@
 
 
+import 'package:bazaar/viewproduct_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:file_picker/file_picker.dart';
 import 'login_screen.dart';
 
 
@@ -76,12 +77,60 @@ class _signupState extends State<signup> {
                     ),
 
                     buildCard(icon:Icons.person,titype: TextInputType.text,htext: 'Full Name',mdata:data),
-                    buildCard(icon:Icons.person_pin,titype: TextInputType.text,htext: 'Username',mdata:data),
                     buildCard(icon:Icons.lock,titype: TextInputType.visiblePassword,htext: 'Password',mdata:data),
                     buildCard(icon:Icons.phone,titype: TextInputType.phone,htext: 'Phone Number',mdata:data),
                     buildCard(icon:Icons.location_on,titype: TextInputType.multiline,htext: 'Address',mdata:data),
+                    
                     SizedBox(
                       height:10.0 ,
+                    ),
+
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0)
+                            ),
+                            child: Container(
+                              height: 55,
+                              width: 150,
+                              child: FlatButton.icon(
+                                icon: Icon(Icons.insert_drive_file
+                                ),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(32.0),
+                                ),
+
+                                color: Colors.white,
+                                textColor: primarycolor,
+                                padding: EdgeInsets.all(8.0),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductView()));
+                                },
+                                label: Text(
+                                  "Add Pan Card",
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ),
+
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 12.0,
+                        ),
+                        Expanded(
+                          child: Text(
+                            'Name of the file',
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 40.0,
                     ),
                     Container(
                       height: 55,
@@ -94,7 +143,9 @@ class _signupState extends State<signup> {
                         color: primarycolor,
                         textColor: Colors.white,
                         padding: EdgeInsets.all(8.0),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductView()));
+                        },
                         child: Text(
                           "SignUp",
                           style: TextStyle(
