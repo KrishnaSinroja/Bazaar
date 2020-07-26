@@ -1,5 +1,6 @@
 
 
+import 'package:bazaar/tradedetails_screen.dart';
 import 'package:bazaar/viewproduct_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -184,7 +185,7 @@ class _signupState extends State<signup> {
                               decoration: TextDecoration.underline
                           ),
                       ),
-                      onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>login())),
+                      onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>TradeDetails())),
                     ),
                   ],
                 ),
