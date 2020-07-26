@@ -2,6 +2,8 @@ import 'package:bazaar/category_screen.dart';
 import 'package:bazaar/signup_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'managerequest_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -34,14 +36,27 @@ class _DashboardState extends State<Dashboard> {
         title: Text('Bazaar'),
 
       ),
-      body: FlatButton(
-        child: Text(
-          'Category'
-        ),
-        disabledColor: primarycolor,
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>Category()));
-        },
+      body: Row(
+        children: <Widget>[
+          FlatButton(
+            child: Text(
+              'Category'
+            ),
+            disabledColor: primarycolor,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Category()));
+            },
+          ),
+          FlatButton(
+            child: Text(
+                'Manage Requests'
+            ),
+            disabledColor: primarycolor,
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ManageRequest()));
+            },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF739b21),
