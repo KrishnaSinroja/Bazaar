@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 Row firstCardInnerRow(String text){
   return Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+
     children: <Widget>[
       Text(
         text,
@@ -78,20 +80,25 @@ class _TradeDetailsState extends State<TradeDetails> {
                      ),
                      Padding(
                        padding: const EdgeInsets.all(8.0),
-                       child: Column(
-                         mainAxisAlignment: MainAxisAlignment.center,
-                         crossAxisAlignment: CrossAxisAlignment.end,
-                         children: <Widget>[
-                           firstCardInnerRow('9677'),
-                           SizedBox(height: 20.0,),
-                            firstCardInnerRow('Jaypur,Raj.'),
-                           SizedBox(height: 20.0,),
-                            firstCardInnerRow('xxxxxx'),
-                           SizedBox(height: 20.0,),
-                            firstCardInnerRow('xxxxxx'),
-                           SizedBox(height: 20.0,),
-                            firstCardInnerRow('xxxxxx'),
-                         ],
+                       child: Container(
+                         child: Align(
+                           alignment: Alignment.topRight,
+                           child: Column(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                             crossAxisAlignment: CrossAxisAlignment.end,
+                             children: <Widget>[
+                               firstCardInnerRow('9677'),
+                               SizedBox(height: 20.0,),
+                                firstCardInnerRow('Jaypur,Raj.'),
+                               SizedBox(height: 20.0,),
+                                firstCardInnerRow('xxxxxx'),
+                               SizedBox(height: 20.0,),
+                                firstCardInnerRow('xxxxxx'),
+                               SizedBox(height: 20.0,),
+                                firstCardInnerRow('xxxxxx'),
+                             ],
+                           ),
+                         ),
                        ),
                      ),
                    ],
@@ -107,109 +114,108 @@ class _TradeDetailsState extends State<TradeDetails> {
                 height: data.size.height*0.1,
                 width: data.size.width,
                 child: Card(
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(left: 25.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.line_weight,color: primarycolor,size: 20.0,),
-                                  Text(
-                                    '450 QTL',
-                                    style: TextStyle(
-                                      color: Colors.black,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: data.size.width/15),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    Icon(Icons.line_weight,color: primarycolor,size: 20.0,),
+                                    Text(
+                                      '450 QTL',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                  ],
+                                ),
 
-                            Padding(
-                              padding: const EdgeInsets.only(left:25.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    'Available Qty',
-                                    style: TextStyle(
-                                      color: Colors.black,
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      'Available Qty',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(20, 0, 10, 0),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.monetization_on,color: primarycolor,size: 20.0,),
-                                  Text(
-                                    'Rs. 3000/QTL',
-                                    style: TextStyle(
-                                      color: Colors.black,
+                        Expanded(
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    Icon(Icons.monetization_on,color: primarycolor,size: 20.0,),
+                                    Text(
+                                      'Rs. 3000/QTL',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Text(
-                                  'Offer',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      'Offer',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Row(
+                        Expanded(
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.line_weight,color: primarycolor,size: 20.0,),
-                                Text(
-                                  '450 QTL',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
+                                Row(
+                                  children: <Widget>[
+                                    Icon(Icons.line_weight,color: primarycolor,size: 20.0,),
+                                    Text(
+                                      '450 QTL',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      'Total Qty',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                            Row(
-                              children: <Widget>[
-                                Text(
-                                  'Total Qty',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   shape:RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25.0)

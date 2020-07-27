@@ -4,6 +4,32 @@ import 'package:flutter/material.dart';
 
 import 'managerequest_screen.dart';
 
+
+Card buildListTile (IconData iconData,String text){
+  return Card(
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(32.0)
+    ),
+    color: primarycolor,
+    child: Container(
+      height: 55,
+      width: 150,
+      child: ListTile(
+        leading: Icon(
+          iconData,
+          color: Colors.white,
+        ),
+        title: Text(
+            text,
+            style: TextStyle(
+            color:Colors.white
+        ),
+        ),
+      )
+    ),
+  );
+}
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -31,6 +57,41 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+      drawer:Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage('assets/images/logo.png'),
+                      radius: 45.0,
+                    ),
+                  ],
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+            ),
+            
+            buildListTile(Icons.insert_drive_file,'Transaction History'),
+            buildListTile(Icons.people,'Manage Request'),
+            buildListTile(Icons.monetization_on,'Current Transaction'),
+            buildListTile(Icons.list,'Requirement List'),
+          ],
+        ),
+      ),
+
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Bazaar'),

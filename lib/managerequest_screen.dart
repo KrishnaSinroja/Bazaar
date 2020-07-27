@@ -112,7 +112,7 @@ class _ManageRequestState extends State<ManageRequest> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
+                      padding: EdgeInsets.only(left:data.size.width/17),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -122,7 +122,7 @@ class _ManageRequestState extends State<ManageRequest> {
                     ),
                     SizedBox(height: 15.0),
                     Padding(
-                      padding: const EdgeInsets.only(left: 14.0),
+                      padding: EdgeInsets.only(left: data.size.width/17),
                       child: Row(
                         children: <Widget>[
                           Column(
