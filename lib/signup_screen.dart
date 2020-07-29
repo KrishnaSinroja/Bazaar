@@ -28,6 +28,8 @@ Card buildCard({IconData icon,TextInputType titype,String htext,MediaQueryData m
            contentPadding: EdgeInsets.all(12),
            focusedBorder: InputBorder.none,
            enabledBorder: InputBorder.none,
+
+
            prefixIcon: Icon(
              icon,
              color: primarycolor,

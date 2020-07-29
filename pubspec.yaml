@@ -47,6 +47,7 @@ flutter:
     - assets/images/Ground Nut3.png
     - assets/images/cotton3.png
     - assets/images/maize3.png
+    - assets/images/demo.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
