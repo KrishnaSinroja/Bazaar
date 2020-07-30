@@ -1,7 +1,9 @@
 import 'package:bazaar/category_screen.dart';
 import 'package:bazaar/signup_screen.dart';
+import 'package:bazaar/transaction_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'filter_screen.dart';
 import 'managerequest_screen.dart';
 
 
@@ -97,26 +99,53 @@ class _DashboardState extends State<Dashboard> {
         title: Text('Bazaar'),
 
       ),
-      body: Row(
+      body: Column(
         children: <Widget>[
-          FlatButton(
-            child: Text(
-              'Category'
-            ),
-            disabledColor: primarycolor,
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Category()));
-            },
+          Row(
+            children: <Widget>[
+              FlatButton(
+                child: Text(
+                  'Category'
+                ),
+                disabledColor: primarycolor,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Category()));
+                },
+              ),
+              FlatButton(
+                child: Text(
+                    'Manage Requests'
+                ),
+                disabledColor: primarycolor,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ManageRequest()));
+                },
+              ),
+              FlatButton(
+                child: Text(
+                    'Filter'
+                ),
+                disabledColor: primarycolor,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Filter()));
+                },
+              ),
+
+            ],
           ),
-          FlatButton(
-            child: Text(
-                'Manage Requests'
-            ),
-            disabledColor: primarycolor,
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ManageRequest()));
-            },
-          ),
+          Row(
+            children: <Widget>[
+              FlatButton(
+                child: Text(
+                    'Transaction'
+                ),
+                disabledColor: primarycolor,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Transaction()));
+                },
+              ),
+            ],
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
