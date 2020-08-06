@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'filter_screen.dart';
 import 'managerequest_screen.dart';
 
+const Color pcolor=Color(0xFF739b21);
 
 Card buildListTile (IconData iconData,String text){
   return Card(
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(32.0)
     ),
-    color: primarycolor,
+    color: pcolor,
     child: Container(
       height: 55,
       width: 150,
@@ -57,7 +58,11 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   @override
+
+
+
   Widget build(BuildContext context) {
+
     return Scaffold(
       
       drawer:Drawer(
@@ -107,7 +112,7 @@ class _DashboardState extends State<Dashboard> {
                 child: Text(
                   'Category'
                 ),
-                disabledColor: primarycolor,
+                disabledColor: pcolor,
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Category()));
                 },
@@ -116,20 +121,12 @@ class _DashboardState extends State<Dashboard> {
                 child: Text(
                     'Manage Requests'
                 ),
-                disabledColor: primarycolor,
+                disabledColor: pcolor,
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ManageRequest()));
                 },
               ),
-              FlatButton(
-                child: Text(
-                    'Filter'
-                ),
-                disabledColor: primarycolor,
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Filter()));
-                },
-              ),
+             
 
             ],
           ),
@@ -139,15 +136,32 @@ class _DashboardState extends State<Dashboard> {
                 child: Text(
                     'Transaction'
                 ),
-                disabledColor: primarycolor,
+                disabledColor: pcolor,
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Transaction()));
                 },
               ),
+              RaisedButton(
+                child: Text('Filter Dialog'),
+                onPressed: (){
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => Filter(
+
+                    ),
+                  );
+                },
+              )
+
             ],
-          )
+          ),
+
+
+
         ],
       ),
+
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF739b21),
         onPressed: () {
@@ -159,6 +173,9 @@ class _DashboardState extends State<Dashboard> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
+
+
+
 
     );
     }
