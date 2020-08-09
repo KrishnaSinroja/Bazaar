@@ -48,6 +48,8 @@ flutter:
     - assets/images/cotton3.png
     - assets/images/maize3.png
     - assets/images/demo.jpg
+    - assets/images/plant.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

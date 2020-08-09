@@ -1,4 +1,6 @@
 import 'package:bazaar/category_screen.dart';
+import 'package:bazaar/display_buyer.dart';
+import 'package:bazaar/product_not_added_screen.dart';
 import 'package:bazaar/signup_screen.dart';
 import 'package:bazaar/transaction_screen.dart';
 import 'package:flutter/material.dart';
@@ -69,34 +71,71 @@ class _DashboardState extends State<Dashboard> {
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical
         // space to fit everything.
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
+        child: Column(
           children: <Widget>[
-            DrawerHeader(
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      backgroundImage: AssetImage('assets/images/logo.png'),
-                      radius: 45.0,
+            ListView(
+              shrinkWrap: true,
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          backgroundImage: AssetImage('assets/images/logo.png'),
+                          radius: 45.0,
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+
+
+                buildListTile(Icons.insert_drive_file,'Transaction History'),
+                buildListTile(Icons.people,'Manage Request'),
+                buildListTile(Icons.monetization_on,'Current Transaction'),
+                buildListTile(Icons.list,'Requirement List'),
+
+
+
+              ],
+            ),
+            Flexible(
+              flex:1,
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom:18.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundImage: AssetImage('assets/images/logo.png'),
+                        backgroundColor: Colors.white,
+                        radius: 28.0,
+                      ),
+                      SizedBox(
+                        width: 17.0,
+                      ),
+                      Text(
+                        "BAZAAR",
+                        style:
+                        TextStyle(color: Color(0xFF739b21), fontSize: 25,letterSpacing: 6.0),
+                      )
+                    ],
+                  ),
                 ),
               ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-              ),
             ),
-            
-            buildListTile(Icons.insert_drive_file,'Transaction History'),
-            buildListTile(Icons.people,'Manage Request'),
-            buildListTile(Icons.monetization_on,'Current Transaction'),
-            buildListTile(Icons.list,'Requirement List'),
           ],
         ),
+
       ),
 
       backgroundColor: Colors.white,
@@ -126,7 +165,16 @@ class _DashboardState extends State<Dashboard> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ManageRequest()));
                 },
               ),
-             
+              FlatButton(
+                child: Text(
+                    'Dashboard'
+                ),
+                disabledColor: pcolor,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>DisplayUI('1')));
+                },
+              ),
+
 
             ],
           ),
@@ -151,8 +199,16 @@ class _DashboardState extends State<Dashboard> {
                     ),
                   );
                 },
-              )
-
+              ),
+              FlatButton(
+                child: Text(
+                    'No Product'
+                ),
+                disabledColor: pcolor,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NoProduct()));
+                },
+              ),
             ],
           ),
 
