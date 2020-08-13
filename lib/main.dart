@@ -1,4 +1,5 @@
 import 'package:bazaar/category_screen.dart';
+import 'package:bazaar/custom_dialog_screen.dart';
 import 'package:bazaar/display_buyer.dart';
 import 'package:bazaar/product_not_added_screen.dart';
 import 'package:bazaar/signup_screen.dart';
@@ -211,7 +212,24 @@ class _DashboardState extends State<Dashboard> {
               ),
             ],
           ),
-
+          Row(
+            children: <Widget>[
+              RaisedButton(
+                child: Text('Custom Dialog'),
+                onPressed: (){
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        Future.delayed(Duration(seconds: 2), () {
+                          Navigator.of(context).pop(true);
+                        });
+                        return CustomDialog(
+                        );
+                      });
+                },
+              ),
+            ],
+          )
 
 
         ],
